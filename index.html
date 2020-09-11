@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Lights</title>
+        <style>
+            *{
+                margin: 0;
+            }
+            .background {
+                width: 100vw;
+                height: 100vh;
+                transition: all 2s;
+                background: #FF0000;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="background"></div>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+    var i = -1;
+    var colors = [
+        [255, 0, 0],
+        [255, 255, 0],
+        [0, 255, 0],
+        [0, 255, 255],
+        [0, 0, 255],
+        [255, 0, 255]
+    ];
+
+    function setBg(i) {
+        let col = colors[i];
+        $('.background').css({
+            'background': 'rgba(' + col[0]+', '+col[1]+', '+col[2]+')'
+        })
+    }
+
+    setInterval(()=>{
+        var d = new Date();
+        setBg(d.getSeconds() % colors.length);
+    }, 50);
+    </script>
+</html>
